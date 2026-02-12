@@ -7,17 +7,17 @@ import { getMostRecentTag } from 'src/get-most-recent-tag'
 
 async function run() {
   try {
-    const token = core.getInput('github-token', { required: true })
-    const releaseTag = core.getInput('release-tag') || ''
-    let base = core.getInput('base') || ''
-    const head = core.getInput('head') || 'HEAD'
-
     const { owner, repo } = github.context.repo
     const branch = github.context.ref.replace('refs/heads/', '')
 
+    const token = core.getInput('github-token', { required: true })
+    const releaseTag = core.getInput('release-tag') || ''
+    let base = core.getInput('base') || ''
+    const head = core.getInput('head') || branch
+
     core.info(`Owner: ${owner}`)
     core.info(`Repo: ${repo}`)
-    core.info(`Release tag: ${base}`)
+    core.info(`New release tag: ${releaseTag}`)
     core.info(`Base ref: ${base}`)
     core.info(`Head ref: ${head}`)
     core.info(`Branch: ${branch}`)
