@@ -6,6 +6,9 @@ inputs:
   github-token:
     description: 'GitHub token for API access'
     required: true
+  release-tag:
+    description: 'The new release tag to be created (used in compare link)'
+    required: false
   base:
     description: 'The base ref to start the comparison from'
     required: false
