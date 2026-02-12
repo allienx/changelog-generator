@@ -2,7 +2,6 @@
   "name": "changelog-generator",
   "version": "1.0.0",
   "description": "GitHub action to generate a changelog with the commit messages between two refs.",
-  "type": "module",
   "homepage": "https://github.com/allienx/actions-changelog-generator#readme",
   "bugs": {
     "url": "https://github.com/allienx/actions-changelog-generator/issues"
