@@ -1,0 +1,32 @@
+{
+  "name": "changelog-generator",
+  "version": "1.0.0",
+  "description": "GitHub action to generate a changelog with the commit messages between two refs.",
+  "homepage": "https://github.com/allienx/actions-changelog-generator#readme",
+  "bugs": {
+    "url": "https://github.com/allienx/actions-changelog-generator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allienx/actions-changelog-generator.git"
+  },
+  "license": "ISC",
+  "author": "Alex Lin",
+  "scripts": {
+    "build": "tsc",
+    "package": "npm run build && ncc build dist/lib/main.js --out dist"
+  },
+  "dependencies": {
+    "@actions/core": "3.0.0",
+    "@actions/github": "9.0.0"
+  },
+  "devDependencies": {
+    "@octokit/rest": "22.0.1",
+    "@octokit/types": "16.0.0",
+    "@types/node": "25.2.3",
+    "@vercel/ncc": "0.38.4",
+    "prettier": "3.8.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
+  }
+}

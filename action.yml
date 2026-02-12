@@ -1,0 +1,22 @@
+name: 'changelog-generator'
+description: 'GitHub action to generate a changelog with the commit messages between two refs.'
+author: 'Alex Lin'
+
+inputs:
+  github-token:
+    description: 'GitHub token for API access'
+    required: true
+  base:
+    description: 'The base ref to start the comparison from'
+    required: false
+  head:
+    description: 'The head ref to end the comparison'
+    required: false
+
+outputs:
+  summary:
+    description: 'The changelog summary between the two refs.'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
