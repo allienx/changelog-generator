@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
-import { compareCommits } from 'lib/compare-commits'
-import { getCommitsSummary } from 'lib/get-commits-summary'
+import { compareCommits } from 'src/compare-commits'
+import { getCommitsSummary } from 'src/get-commits-summary'
 
 async function run() {
   try {
