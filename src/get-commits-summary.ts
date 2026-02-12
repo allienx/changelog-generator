@@ -8,11 +8,13 @@ export function getCommitsSummary(
   {
     owner,
     repo,
+    releaseTag,
     base,
     head,
   }: {
     owner?: string
     repo?: string
+    releaseTag?: string
     base?: string
     head?: string
   } = {},
@@ -29,9 +31,9 @@ export function getCommitsSummary(
 
   const lines = ['### Changelog\n', ...commits]
 
-  if (owner && repo && base && head) {
+  if (owner && repo && base && (releaseTag || head)) {
     lines.push(
-      `\n**Compare**: https://github.com/${owner}/${repo}/compare/${base}...${head}`,
+      `\n**Compare**: https://github.com/${owner}/${repo}/compare/${base}...${releaseTag || head}`,
     )
   }
 

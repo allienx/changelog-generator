@@ -8,6 +8,7 @@ import { getMostRecentTag } from 'src/get-most-recent-tag'
 async function run() {
   try {
     const token = core.getInput('github-token', { required: true })
+    const releaseTag = core.getInput('release-tag') || ''
     let base = core.getInput('base') || ''
     const head = core.getInput('head') || 'HEAD'
 
