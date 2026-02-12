@@ -17,6 +17,7 @@ async function run() {
 
     core.info(`Owner: ${owner}`)
     core.info(`Repo: ${repo}`)
+    core.info(`Release tag: ${base}`)
     core.info(`Base ref: ${base}`)
     core.info(`Head ref: ${head}`)
     core.info(`Branch: ${branch}`)
@@ -43,7 +44,13 @@ async function run() {
     }
 
     const res = await compareCommits({ octokit, owner, repo, base, head })
-    const summary = getCommitsSummary(res, { owner, repo, base, head })
+    const summary = getCommitsSummary(res, {
+      owner,
+      repo,
+      releaseTag,
+      base,
+      head,
+    })
 
     core.info(summary)
     core.setOutput('summary', summary)
