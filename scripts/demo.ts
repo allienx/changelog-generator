@@ -1,5 +1,5 @@
 import { Octokit } from '@octokit/rest'
-import { compareCommits } from 'lib/compare-commits'
+import { compareCommits } from 'src/compare-commits'
 
 main().catch(console.error)
 
