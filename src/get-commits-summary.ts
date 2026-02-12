@@ -12,21 +12,19 @@ export function getCommitsSummary(
     base,
     head,
   }: {
-    owner?: string
-    repo?: string
+    owner: string
+    repo: string
     releaseTag?: string
     base?: string
     head?: string
-  } = {},
+  },
 ) {
   const commits = res.data.commits.map((obj) => {
     const author = obj.author?.login
-    const sha = obj.sha.substring(0, 7)
+    const sha = obj.sha
     const message = obj.commit.message.split('\n')[0]
 
-    return author
-      ? `- ${message} by @${author} in ${sha}`
-      : `- ${message} in ${sha}`
+    return getCommitLine({ message, sha, owner, repo, author })
   })
 
   const lines = ['### Changelog\n', ...commits]
@@ -38,4 +36,25 @@ export function getCommitsSummary(
   }
 
   return lines.join('\n')
+}
+
+function getCommitLine({
+  message,
+  sha,
+  owner,
+  repo,
+  author,
+}: {
+  message: string
+  sha: string
+  owner: string
+  repo: string
+  author?: string
+}) {
+  const shaShort = sha.substring(0, 7)
+  const shaLink = `[${shaShort}](https://github.com/${owner}/${repo}/commit/${sha})`
+
+  return author
+    ? `- ${message} by @${author} in ${shaLink}`
+    : `- ${message} in ${shaLink}`
 }
