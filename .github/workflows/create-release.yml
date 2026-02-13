@@ -15,12 +15,6 @@ jobs:
       id-token: write
       contents: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: '.nvmrc'
-          registry-url: 'https://registry.npmjs.org'
-
       - name: Get release version
         uses: xom9ikk/split@v1
         id: split
