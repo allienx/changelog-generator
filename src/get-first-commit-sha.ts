@@ -20,6 +20,7 @@ export async function getFirstCommitSha({
         owner,
         repo,
         sha: branch,
+        per_page: 100,
       },
     )
     const firstCommit = allCommits[allCommits.length - 1]
