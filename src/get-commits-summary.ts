@@ -31,7 +31,7 @@ export function getCommitsSummary(
 
   if (owner && repo && base && (releaseTag || head)) {
     lines.push(
-      `\n**Compare**: https://github.com/${owner}/${repo}/compare/${base}...${releaseTag || head}`,
+      `\n**Compare**: [${base}...${releaseTag || head}](https://github.com/${owner}/${repo}/compare/${base}...${releaseTag || head})`,
     )
   }
 
